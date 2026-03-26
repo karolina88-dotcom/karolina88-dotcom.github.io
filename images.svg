@@ -1,0 +1,96 @@
+<svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff33cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00ffff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="darkCardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d1b4e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="#0f0f1e"/>
+
+  <!-- HTML Card -->
+  <g>
+    <rect x="30" y="30" width="320" height="340" rx="15" fill="url(#darkCardBg)" stroke="#ff33cc" stroke-width="3" filter="url(#glow)"/>
+    
+    <!-- HTML Icon -->
+    <rect x="50" y="50" width="280" height="100" rx="8" fill="#1a1a2e" stroke="#00ffff" stroke-width="2"/>
+    <text x="190" y="120" font-size="60" text-anchor="middle" fill="#00ffff" font-weight="bold" filter="url(#glow)">&lt;/&gt;</text>
+    
+    <!-- Title -->
+    <text x="190" y="180" font-size="24" text-anchor="middle" fill="#ff33cc" font-weight="bold">HTML</text>
+    <text x="190" y="210" font-size="14" text-anchor="middle" fill="#a0a0d0">HyperText Markup</text>
+    <text x="190" y="230" font-size="14" text-anchor="middle" fill="#a0a0d0">Language</text>
+    
+    <!-- Description -->
+    <text x="190" y="270" font-size="12" text-anchor="middle" fill="#b0b0e0">Poskytuje strukturu</text>
+    <text x="190" y="290" font-size="12" text-anchor="middle" fill="#b0b0e0">a obsah stránky</text>
+    <text x="190" y="330" font-size="11" text-anchor="middle" fill="#00ffff" font-weight="bold">Tagy, elementy, obsah</text>
+  </g>
+
+  <!-- Arrow -->
+  <g>
+    <line x1="370" y1="200" x2="410" y2="200" stroke="#00ffff" stroke-width="4" filter="url(#glow)"/>
+    <polygon points="410,200 395,192 398,208" fill="#00ffff" filter="url(#glow)"/>
+  </g>
+
+  <!-- CSS Card -->
+  <g>
+    <rect x="440" y="30" width="320" height="340" rx="15" fill="url(#darkCardBg)" stroke="#ff33cc" stroke-width="3" filter="url(#glow)"/>
+    
+    <!-- CSS Icon -->
+    <rect x="460" y="50" width="280" height="100" rx="8" fill="#1a1a2e" stroke="#00ffff" stroke-width="2"/>
+    <circle cx="510" cy="100" r="12" fill="#ff33cc" filter="url(#glow)"/>
+    <path d="M 530 90 L 530 110" stroke="#ff33cc" stroke-width="3" filter="url(#glow)"/>
+    <path d="M 550 85 L 565 100 L 550 115" stroke="#00ffff" stroke-width="3" fill="none" filter="url(#glow)"/>
+    <circle cx="600" cy="100" r="8" fill="#00ffff" filter="url(#glow)"/>
+    <rect x="630" y="95" width="20" height="10" fill="#ff33cc" filter="url(#glow)"/>
+    
+    <!-- Title -->
+    <text x="600" y="180" font-size="24" text-anchor="middle" fill="#ff33cc" font-weight="bold">CSS</text>
+    <text x="600" y="210" font-size="14" text-anchor="middle" fill="#a0a0d0">Cascading Style</text>
+    <text x="600" y="230" font-size="14" text-anchor="middle" fill="#a0a0d0">Sheets</text>
+    
+    <!-- Description -->
+    <text x="600" y="270" font-size="12" text-anchor="middle" fill="#b0b0e0">Styluje a formátuje</text>
+    <text x="600" y="290" font-size="12" text-anchor="middle" fill="#b0b0e0">prvky stránky</text>
+    <text x="600" y="330" font-size="11" text-anchor="middle" fill="#00ffff" font-weight="bold">Barvy, písmo, layout</text>
+  </g>
+
+  <!-- Arrow -->
+  <g>
+    <line x1="780" y1="200" x2="820" y2="200" stroke="#00ffff" stroke-width="4" filter="url(#glow)"/>
+    <polygon points="820,200 805,192 808,208" fill="#00ffff" filter="url(#glow)"/>
+  </g>
+
+  <!-- JavaScript Card -->
+  <g>
+    <rect x="850" y="30" width="320" height="340" rx="15" fill="url(#darkCardBg)" stroke="#ff33cc" stroke-width="3" filter="url(#glow)"/>
+    
+    <!-- JavaScript Icon -->
+    <rect x="870" y="50" width="280" height="100" rx="8" fill="#1a1a2e" stroke="#00ffff" stroke-width="2"/>
+    <text x="900" y="80" font-size="16" text-anchor="middle" fill="#ff33cc" font-weight="bold" filter="url(#glow)">{ }</text>
+    <text x="1010" y="95" font-size="32" text-anchor="middle" fill="#00ffff" font-weight="bold" filter="url(#glow)">⚡</text>
+    
+    <!-- Title -->
+    <text x="1010" y="180" font-size="24" text-anchor="middle" fill="#ff33cc" font-weight="bold">JavaScript</text>
+    <text x="1010" y="210" font-size="14" text-anchor="middle" fill="#a0a0d0">Script Language</text>
+    <text x="1010" y="230" font-size="14" text-anchor="middle" fill="#a0a0d0">for Interaction</text>
+    
+    <!-- Description -->
+    <text x="1010" y="270" font-size="12" text-anchor="middle" fill="#b0b0e0">Přidává interaktivitu</text>
+    <text x="1010" y="290" font-size="12" text-anchor="middle" fill="#b0b0e0">a funkčnost</text>
+    <text x="1010" y="330" font-size="11" text-anchor="middle" fill="#00ffff" font-weight="bold">Logika, animace, events</text>
+  </g>
+</svg>
