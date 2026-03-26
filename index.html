@@ -4,8 +4,790 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Základy webových technologií</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+/* Globální styly */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #4a3f47;
+    background: linear-gradient(180deg, #fef5f9 0%, #fdf0f7 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header a navigace */
+header {
+    background: linear-gradient(135deg, #d4546e 0%, #c93d61 100%);
+    color: white;
+    padding: 0;
+    box-shadow: 0 4px 15px rgba(201, 61, 97, 0.25);
+    border-bottom: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Hero sekce */
+.hero {
+    background: linear-gradient(135deg, #f5c9d8 0%, #edd5e1 100%);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    border-bottom: none;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #c93d61;
+    text-shadow: none;
+}
+
+.hero p {
+    font-size: 20px;
+    opacity: 0.9;
+    margin-bottom: 40px;
+    color: #6d4f5c;
+}
+
+.hero-image {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    max-width: 900px;
+}
+
+.hero-image svg {
+    width: 100%;
+    height: auto;
+    max-width: 900px;
+}
+
+/* Sekce */
+.section {
+    padding: 80px 20px;
+    background-color: white;
+    margin: 20px 0;
+    border-radius: 15px;
+    border-left: 5px solid #d4546e;
+    box-shadow: 0 4px 20px rgba(201, 61, 97, 0.1);
+}
+
+.section.alt {
+    background: linear-gradient(135deg, #fef5f9 0%, #ffe8f0 100%);
+}
+
+.section-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.section h3 {
+    font-size: 36px;
+    color: #c93d61;
+    text-shadow: none;
+    margin-bottom: 20px;
+}
+
+.section h4 {
+    font-size: 20px;
+    color: #d4546e;
+    text-shadow: none;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.section p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #5a4d52;
+}
+
+/* Seznamy */
+.tag-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.tag-list li {
+    padding: 12px 20px;
+    margin: 10px 0;
+    background: linear-gradient(90deg, #fff0f5 0%, #ffe8f0 100%);
+    border-left: 4px solid #d4546e;
+    border-right: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #5a4d52;
+}
+
+.tag-list li:hover {
+    background: linear-gradient(90deg, #ffe8f0 0%, #ffdeec 100%);
+    box-shadow: 0 4px 15px rgba(212, 84, 110, 0.2);
+    transform: translateX(5px);
+}
+
+/* Kód bloky */
+.code-block {
+    background-color: #f8f3f6;
+    color: #7d3c4f;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 2px solid #e8c8d8;
+    box-shadow: 0 2px 10px rgba(212, 84, 110, 0.1);
+}
+
+.code-block pre {
+    margin: 0;
+}
+
+/* Flow diagram */
+.flow-diagram {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.flow-item {
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe8f0 100%);
+    border: 2px solid #d4546e;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(212, 84, 110, 0.15);
+    transition: all 0.3s ease;
+}
+
+.flow-item:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(212, 84, 110, 0.25);
+    border-color: #c93d61;
+    background: linear-gradient(135deg, #ffe8f0 0%, #ffdeec 100%);
+}
+
+.flow-number {
+    background: linear-gradient(135deg, #d4546e 0%, #c93d61 100%);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 12px rgba(201, 61, 97, 0.3);
+}
+
+.flow-item h4 {
+    color: #c93d61;
+    text-shadow: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.flow-item p {
+    font-size: 14px;
+    color: #8a6d78;
+}
+
+.flow-arrow {
+    font-size: 30px;
+    color: #d4546e;
+    padding: 0 10px;
+    flex-shrink: 0;
+    text-shadow: none;
+}
+
+/* Analogy a best practices */
+.analogy,
+.best-practices {
+    background: linear-gradient(135deg, #ffe8f0 0%, #ffdeec 100%);
+    padding: 30px;
+    border-radius: 12px;
+    margin: 30px 0;
+    border: 2px solid #e8c8d8;
+}
+
+.analogy h4,
+.best-practices h3 {
+    color: #c93d61;
+    text-shadow: none;
+    margin-bottom: 20px;
+}
+
+.analogy strong,
+.best-practices strong {
+    color: #d4546e;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #d4546e 0%, #c93d61 100%);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    border-top: none;
+}
+
+/* Responzivní design */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section h3 {
+        font-size: 28px;
+    }
+
+    .flow-diagram {
+        flex-direction: column;
+    }
+
+    .flow-arrow {
+        transform: rotate(90deg);
+        margin: 10px 0;
+    }
+
+    .section {
+        padding: 40px 20px;
+    }
+
+    .icon {
+        font-size: 48px;
+    }
+}
+
+/* Animace */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        color: #c93d61;
+    }
+    50% {
+        color: #d4546e;
+    }
+}
+
+.section-content {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.section h3 {
+    animation: glow 3s ease-in-out infinite;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+    </style>
 </head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">WebTech</h1>
+                <ul class="nav-links">
+                    <li><a href="#html">HTML</a></li>
+                    <li><a href="#css">CSS</a></li>
+                    <li><a href="#javascript">JavaScript</a></li>
+                    <li><a href="#jak-funguje">Jak funguje</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Základy webových technologií</h2>
+            <p>Naučte se, jak fungují moderní webové stránky a co stojí za jejich tvorbou</p>
+            <div class="hero-image">
+                <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="pastelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#d4546e;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#c93d61;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="lightCardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#fff0f5;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ffe8f0;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="1200" height="400" fill="#fef5f9"/>
+                    <g>
+                        <rect x="30" y="30" width="320" height="340" rx="15" fill="url(#lightCardBg)" stroke="#d4546e" stroke-width="2"/>
+                        <rect x="50" y="50" width="280" height="100" rx="8" fill="white" stroke="#c93d61" stroke-width="2"/>
+                        <text x="190" y="120" font-size="60" text-anchor="middle" fill="#c93d61" font-weight="bold">&lt;/&gt;</text>
+                        <text x="190" y="180" font-size="24" text-anchor="middle" fill="#c93d61" font-weight="bold">HTML</text>
+                        <text x="190" y="210" font-size="14" text-anchor="middle" fill="#8a6d78">HyperText Markup</text>
+                        <text x="190" y="230" font-size="14" text-anchor="middle" fill="#8a6d78">Language</text>
+                        <text x="190" y="270" font-size="12" text-anchor="middle" fill="#9d7a87">Poskytuje strukturu</text>
+                        <text x="190" y="290" font-size="12" text-anchor="middle" fill="#9d7a87">a obsah stránky</text>
+                        <text x="190" y="330" font-size="11" text-anchor="middle" fill="#d4546e" font-weight="bold">Tagy, elementy, obsah</text>
+                    </g>
+                    <g>
+                        <line x1="370" y1="200" x2="410" y2="200" stroke="#d4546e" stroke-width="3"/>
+                        <polygon points="410,200 395,192 398,208" fill="#d4546e"/>
+                    </g>
+                    <g>
+                        <rect x="440" y="30" width="320" height="340" rx="15" fill="url(#lightCardBg)" stroke="#d4546e" stroke-width="2"/>
+                        <rect x="460" y="50" width="280" height="100" rx="8" fill="white" stroke="#c93d61" stroke-width="2"/>
+                        <circle cx="510" cy="100" r="12" fill="#c93d61"/>
+                        <path d="M 530 90 L 530 110" stroke="#c93d61" stroke-width="3"/>
+                        <path d="M 550 85 L 565 100 L 550 115" stroke="#d4546e" stroke-width="3" fill="none"/>
+                        <circle cx="600" cy="100" r="8" fill="#d4546e"/>
+                        <rect x="630" y="95" width="20" height="10" fill="#c93d61"/>
+                        <text x="600" y="180" font-size="24" text-anchor="middle" fill="#c93d61" font-weight="bold">CSS</text>
+                        <text x="600" y="210" font-size="14" text-anchor="middle" fill="#8a6d78">Cascading Style</text>
+                        <text x="600" y="230" font-size="14" text-anchor="middle" fill="#8a6d78">Sheets</text>
+                        <text x="600" y="270" font-size="12" text-anchor="middle" fill="#9d7a87">Styluje a formátuje</text>
+                        <text x="600" y="290" font-size="12" text-anchor="middle" fill="#9d7a87">prvky stránky</text>
+                        <text x="600" y="330" font-size="11" text-anchor="middle" fill="#d4546e" font-weight="bold">Barvy, písmo, layout</text>
+                    </g>
+                    <g>
+                        <line x1="780" y1="200" x2="820" y2="200" stroke="#d4546e" stroke-width="3"/>
+                        <polygon points="820,200 805,192 808,208" fill="#d4546e"/>
+                    </g>
+                    <g>
+                        <rect x="850" y="30" width="320" height="340" rx="15" fill="url(#lightCardBg)" stroke="#d4546e" stroke-width="2"/>
+                        <rect x="870" y="50" width="280" height="100" rx="8" fill="white" stroke="#c93d61" stroke-width="2"/>
+                        <text x="900" y="80" font-size="16" text-anchor="middle" fill="#c93d61" font-weight="bold">{ }</text>
+                        <text x="1010" y="95" font-size="32" text-anchor="middle" fill="#d4546e" font-weight="bold">⚡</text>
+                        <text x="1010" y="180" font-size="24" text-anchor="middle" fill="#c93d61" font-weight="bold">JavaScript</text>
+                        <text x="1010" y="210" font-size="14" text-anchor="middle" fill="#8a6d78">Script Language</text>
+                        <text x="1010" y="230" font-size="14" text-anchor="middle" fill="#8a6d78">for Interaction</text>
+                        <text x="1010" y="270" font-size="12" text-anchor="middle" fill="#9d7a87">Přidává interaktivitu</text>
+                        <text x="1010" y="290" font-size="12" text-anchor="middle" fill="#9d7a87">a funkčnost</text>
+                        <text x="1010" y="330" font-size="11" text-anchor="middle" fill="#d4546e" font-weight="bold">Logika, animace, events</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="html" class="section">
+            <div class="container">
+                <div class="section-content">
+                    <div class="icon">📄</div>
+                    <h3>HTML (HyperText Markup Language)</h3>
+                    <p>HTML je značkovací jazyk, který tvoří základ každé webové stránky. Poskytuje strukturu a obsah stránky pomocí tagů a prvků.</p>
+                    
+                    <h4>Základní struktura HTML:</h4>
+                    <div class="code-block">
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Název stránky&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Nadpis&lt;/h1&gt;
+    &lt;p&gt;Odstavec textu&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+
+                    <h4>Běžné HTML tagy:</h4>
+                    <ul class="tag-list">
+                        <li><strong>&lt;h1&gt; až &lt;h6&gt;</strong> - Nadpisy</li>
+                        <li><strong>&lt;p&gt;</strong> - Odstavec</li>
+                        <li><strong>&lt;a&gt;</strong> - Odkaz</li>
+                        <li><strong>&lt;img&gt;</strong> - Obrázek</li>
+                        <li><strong>&lt;div&gt;</strong> - Kontejner</li>
+                        <li><strong>&lt;button&gt;</strong> - Tlačítko</li>
+                        <li><strong>&lt;form&gt;</strong> - Formulář</li>
+                        <li><strong>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</strong> - Seznamy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="css" class="section alt">
+            <div class="container">
+                <div class="section-content">
+                    <div class="icon">🎨</div>
+                    <h3>CSS (Cascading Style Sheets)</h3>
+                    <p>CSS je jazyk pro popis stylu a vzhledu webových stránek. Umožňuje vám barvit, měnit velikost a zarovnávat HTML prvky.</p>
+                    
+                    <h4>Základní syntaxe CSS:</h4>
+                    <div class="code-block">
+                        <pre>selektor {
+  vlastnost: hodnota;
+  vlastnost: hodnota;
+}</pre>
+                    </div>
+
+                    <h4>Příklad:</h4>
+                    <div class="code-block">
+                        <pre>h1 {
+  color: #333;
+  font-size: 32px;
+  text-align: center;
+  margin: 20px 0;
+}</pre>
+                    </div>
+
+                    <h4>Typy selektorů:</h4>
+                    <ul class="tag-list">
+                        <li><strong>Prvek</strong> - p, div, h1</li>
+                        <li><strong>Třída</strong> - .moje-trida</li>
+                        <li><strong>ID</strong> - #moje-id</li>
+                        <li><strong>Atribut</strong> - [type="text"]</li>
+                        <li><strong>Pseudo-třídy</strong> - :hover, :active, :focus</li>
+                    </ul>
+
+                    <h4>Vlastnosti CSS:</h4>
+                    <ul class="tag-list">
+                        <li><strong>color</strong> - Barva textu</li>
+                        <li><strong>background-color</strong> - Barva pozadí</li>
+                        <li><strong>font-size</strong> - Velikost písma</li>
+                        <li><strong>margin</strong> - Vnější odsazení</li>
+                        <li><strong>padding</strong> - Vnitřní odsazení</li>
+                        <li><strong>width, height</strong> - Šířka a výška</li>
+                        <li><strong>display</strong> - Typ zobrazení (block, inline, flex, grid)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="javascript" class="section">
+            <div class="container">
+                <div class="section-content">
+                    <div class="icon">⚙️</div>
+                    <h3>JavaScript</h3>
+                    <p>JavaScript je programovací jazyk, který přináší interaktivitu na webové stránky. Běží v prohlížeči a umožňuje reagovat na akce uživatele.</p>
+                    
+                    <h4>Základní syntaxe:</h4>
+                    <div class="code-block">
+                        <pre>let jmeno = "Petr";
+function pozdrav() {
+  console.log("Ahoj " + jmeno);
+}
+pozdrav();</pre>
+                    </div>
+
+                    <h4>Co umožňuje JavaScript:</h4>
+                    <ul class="tag-list">
+                        <li>Ověřování formulářů</li>
+                        <li>Animace a efekty</li>
+                        <li>Práce s gebeurtenostmi (kliknutí, najetí myší)</li>
+                        <li>Dynamická změna obsahu stránky</li>
+                        <li>Komunikace se serverem (AJAX)</li>
+                        <li>Správa dat v prohlížeči</li>
+                    </ul>
+
+                    <h4>Příklad interaktivity:</h4>
+                    <div class="code-block">
+                        <pre>document.getElementById("tlacitko").addEventListener("click", function() {
+  alert("Klikli jste na tlačítko!");
+  document.body.style.backgroundColor = "lightblue";
+});</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="jak-funguje" class="section alt">
+            <div class="container">
+                <h3>Jak webové technologie pracují dohromady</h3>
+                
+                <div class="flow-diagram">
+                    <div class="flow-item">
+                        <div class="flow-number">1</div>
+                        <h4>HTML</h4>
+                        <p>Poskytuje strukturu a obsah</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">
+                        <div class="flow-number">2</div>
+                        <h4>CSS</h4>
+                        <p>Styluje a zformátuje prvky</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">
+                        <div class="flow-number">3</div>
+                        <h4>JavaScript</h4>
+                        <p>Přidává interaktivitu</p>
+                    </div>
+                </div>
+
+                <div class="analogy">
+                    <h4>Analogie - Dům:</h4>
+                    <ul class="tag-list">
+                        <li><strong>HTML</strong> = Stavba domu (cihly, trámy) - struktura</li>
+                        <li><strong>CSS</strong> = Barvy, obklady a dekorace - vzhled</li>
+                        <li><strong>JavaScript</strong> = Elektrika, voda a topení - funkčnost</li>
+                    </ul>
+                </div>
+
+                <div class="best-practices">
+                    <h3>Doporučené postupy:</h3>
+                    <ul class="tag-list">
+                        <li>✓ Vždy používejte sémantické HTML tagy</li>
+                        <li>✓ Oddělujte HTML, CSS a JavaScript do různých souborů</li>
+                        <li>✓ Zajistěte, aby stránka byla responzivní (fungovala na mobilu)</li>
+                        <li>✓ Optimalizujte výkon a rychlost načítání</li>
+                        <li>✓ Testujte v různých prohlížečích</li>
+                        <li>✓ Zajistěte přístupnost (accessibility) pro všechny uživatele</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Základy webových technologií. Vytvořeno pro vzdělávací účely.</p>
+        </div>
+    </footer>
+
+    <script>
+// JavaScript interaktivita pro webovou stránku
+
+// Aktivní sekce v navigaci
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Odebrání aktivní třídy ze všech odkazů
+            navLinks.forEach(l => l.style.borderBottom = 'none');
+            
+            // Přidání podtržení k aktuálnímu odkazu
+            this.style.borderBottom = '2px solid white';
+        });
+    });
+});
+
+// Zvýraznění sekce při scrollování
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const scrollPosition = window.scrollY;
+        
+        if (scrollPosition >= top - 200 && scrollPosition < top + height - 200) {
+            section.style.opacity = '1';
+        }
+    });
+});
+
+// Přidání interaktivity ke kódu - kopírování do schránky
+document.querySelectorAll('.code-block').forEach(codeBlock => {
+    const copyButton = document.createElement('button');
+    copyButton.textContent = 'Kopírovat kód';
+    copyButton.style.cssText = `
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        background: linear-gradient(135deg, #d4546e 0%, #c93d61 100%);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: none;
+        box-shadow: 0 2px 8px rgba(201, 61, 97, 0.3);
+    `;
+    
+    copyButton.addEventListener('mouseover', () => {
+        copyButton.style.boxShadow = '0 4px 15px rgba(201, 61, 97, 0.5)';
+    });
+    
+    copyButton.addEventListener('mouseout', () => {
+        copyButton.style.boxShadow = '0 2px 8px rgba(201, 61, 97, 0.3)';
+    });
+    
+    copyButton.addEventListener('click', function() {
+        const codeText = codeBlock.querySelector('pre').textContent;
+        navigator.clipboard.writeText(codeText).then(() => {
+            copyButton.textContent = 'Zkopírováno!';
+            setTimeout(() => {
+                copyButton.textContent = 'Kopírovat kód';
+            }, 2000);
+        });
+    });
+    
+    codeBlock.style.position = 'relative';
+    codeBlock.appendChild(copyButton);
+    
+    // Zobrazit tlačítko při najetí myší
+    codeBlock.addEventListener('mouseover', () => {
+        copyButton.style.display = 'block';
+    });
+    
+    codeBlock.addEventListener('mouseout', () => {
+        copyButton.style.display = 'none';
+    });
+});
+
+// Animace čísel ve flow diagramu
+const observerOptions = {
+    threshold: 0.5
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeIn 0.6s ease-in-out forwards';
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.flow-item').forEach(item => {
+    observer.observe(item);
+});
+
+// Dynamické zvýraznění tagů
+document.querySelectorAll('.tag-list li').forEach(tag => {
+    tag.addEventListener('click', function() {
+        this.style.transform = 'scale(1.02)';
+        setTimeout(() => {
+            this.style.transform = 'scale(1)';
+        }, 200);
+    });
+});
+
+// Smooth scroll pro navigační odkazy
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId !== '#') {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
+
+// Interaktivní demo - změna barvy stránky
+console.log('Webová stránka o základech webových technologií je načtena!');
+console.log('Pro více informací otevřete DevTools (F12) a podívejte se na konzolu.');
+
+// Kontrola podpory funkčnosti
+if ('serviceWorker' in navigator) {
+    console.log('Service Workers jsou podporovány!');
+}
+
+if ('localStorage' in window) {
+    console.log('Local storage je k dispozici!');
+}
+
+// Sledování času tráveného na stránce
+let timeOnPage = 0;
+setInterval(() => {
+    timeOnPage++;
+    localStorage.setItem('timeOnPage', timeOnPage);
+}, 1000);
+
+// Vítání uživatele
+window.addEventListener('load', () => {
+    console.log('%c🎉 Vítejte na stránce o webových technologiích!', 'color: #c93d61; font-size: 16px; font-weight: bold;');
+    console.log('%cTato stránka demonstruje HTML, CSS a JavaScript v praxi.', 'color: #d4546e; font-size: 14px;');
+});
+    </script>
+</body>
+</html>
 <body>
     <header>
         <nav class="navbar">
@@ -207,6 +989,5 @@ pozdrav();</pre>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <script>
 </html>
